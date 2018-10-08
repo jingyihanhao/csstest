@@ -26,13 +26,25 @@
 				display: block;
 				overflow: visible;
 			}
+
 		</style>
 	</head>
 	<body>
+	<!--
+				M = moveto(M X,Y) ：将画笔移动到指定的坐标位置
+				L = lineto(L X,Y) ：画直线到指定的坐标位置
+				H = horizontal lineto(H X)：画水平线到指定的X坐标位置
+				V = vertical lineto(V Y)：画垂直线到指定的Y坐标位置
+				C = curveto(C X1,Y1,X2,Y2,ENDX,ENDY)：三次贝赛曲线
+				S = smooth curveto(S X2,Y2,ENDX,ENDY)：平滑曲率
+				Q = quadratic Belzier curve(Q X,Y,ENDX,ENDY)：二次贝赛曲线
+				T = smooth quadratic Belzier curveto(T ENDX,ENDY)：映射
+				A = elliptical Arc(A RX,RY,XROTATION,FLAG1,FLAG2,X,Y)：弧线
+				Z = closepath()：关闭路径-->
 		环形文字目前没有更好的纯CSS方法。但是可以通过SVG来解决这个问题。<br>
 		SVG解决这个问题的方法：textpath包裹住这段文字。再装进text中。<br>
 		并且在textpath需要在其id属性中引用path元素。<br>
-		我们定义这个viewBox不是宽度高度，而是定义了这个SVG与外部容器等大小。<br>
+		我们定义这个!!!!!!!!!!!viewBox不是宽度高度，而是定义了这个SVG与外部容器等大小。<br>
 		M 0,50 移动到点（0,50）<br>
 		a 50,50 0 1,1 0,1
 		<div class="logo">
@@ -46,6 +58,31 @@
 					</text>
 				</svg>
 			</div>
+			<div class="circle_text text1">
+				<svg viewBox="0 0 100 100">
+					<path id="wujiaoxing" d="M2.44715,34.54915 L97.55285,34.54915 Z" fill="#fff" stroke="#000" stroke-width="5"></path>
+				</svg>
+			</div>
 		</div>
 	</body>
+	<script>
+		var wujiaoxing = document.getElementById('wujiaoxing');
+		wujiaoxing.onmouseenter = function(){
+            setTimeout(function () {
+                wujiaoxing.setAttribute('d','M2.44715,34.54915 L97.55285,34.54915 L20.6107,90.45085 ');
+            },1000);
+            setTimeout(function () {
+                wujiaoxing.setAttribute('d','M2.44715,34.54915 L97.55285,34.54915 L20.6107,90.45085 L50,0 ');
+            },2000);
+            setTimeout(function () {
+                wujiaoxing.setAttribute('d','M2.44715,34.54915 L97.55285,34.54915 L20.6107,90.45085 L50,0 L79.3893,90.45085');
+            },3000);
+            setTimeout(function () {
+                wujiaoxing.setAttribute('d','M2.44715,34.54915 L97.55285,34.54915 L20.6107,90.45085 L50,0 L79.3893,90.45085 Z');
+            },4000);
+        }
+/*
+        d="M2.44715,34.54915 L97.55285,34.54915 L20.6107,90.45085 L50,0 L79.3893,90.45085 Z"
+*/
+	</script>
 </html>
