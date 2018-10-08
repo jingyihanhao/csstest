@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>自定义复选框</title>
+		<style>
+			input[type="checkbox"]{
+				position: absolute;
+				clip: rect(0,0,0,0);
+				/*
+                                隐藏先前的CheckBox的盒子
+                */
+			}
+			input[type="checkbox"] + label{
+				display: inline-block;
+				padding: .3em .5em;
+				background: #CCCCCC;
+				background-image: linear-gradient(#DDDDDD,#bbbbbb);
+				border: 1px solid rgba(0,0,0,.2);
+				border-radius: .3em;
+				box-shadow: 0 1px white inset;
+				text-align: center;
+				text-shadow: 0 1px 1px white;
+			}
+			input[type="checkbox"]:checked + label,
+			input[type="checkbox"]:active + label{
+				box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
+				border-color: rgba(0,0,0,.3);
+				background: #bbbbbb;
+			}
+
+		</style>
+	</head>
+	<body>
+	<input type="checkbox" id="awesome" onclick="whatnow()">
+	<label for="awesome">Awesome!</label>
+	<script>
+		function whatnow(){
+            console.log(document.getElementsByTagName('input')[0].checked);
+        }
+
+	</script>
+	</body>
+</html>

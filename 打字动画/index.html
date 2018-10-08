@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>打字动画</title>
+		<style>
+			@keyframes typing {
+				from{
+					width: 0;
+				}
+			}
+			@keyframes caret {
+				50%{
+					border-color: transparent;
+				}
+			}
+			h1{
+				width: 50ch;
+				overflow: hidden;
+				white-space: nowrap;
+				border-right: .05em solid;
+				animation: typing 8s steps(45),caret 1s steps(1) infinite;
+			}
+		</style>
+	</head>
+	<body>
+	<h1>简自豪，Uzi，1997年4月5日出生于湖北省宜昌市。THE BEST ADC</h1>
+
+	</body>
+</html>

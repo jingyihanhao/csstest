@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>扩大可点击区域</title>
+		<style>
+			div{
+				height: 20em;
+				text-align: center;
+				padding: 3em;
+			}
+			div img{
+				width: 6em;
+				height: 6em;
+				border-radius: 50%;
+				border: 2em solid transparent;/*
+				background-clip: padding-box;*/
+				box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset;
+
+			}
+			div img:hover{
+				box-shadow:/* 0 0 0 1px rgba(0,0,0,.3) inset,*/0 .1em .2em .08em rgba(0,0,0,.6);
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="uzi.jpg" alt="">
+		</div>
+	</body>
+</html>

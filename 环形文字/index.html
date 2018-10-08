@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>环形文字</title>
+		<style>
+			.logo{
+				width: 13em;
+				height: 13em;
+				border: 1px solid #0d21d1;
+				margin: 3em auto;
+				background: url('uzi.jpg')no-repeat;
+				background-position: center center;
+				background-size: 9em 9em;
+			}
+			.circle_text{
+				box-sizing: border-box;
+				width: 10em;
+				height: 10em;
+				margin: 1.5em;
+			}
+			.circle_text path{
+				fill: none;
+			}
+			.circle_text svg{
+				display: block;
+				overflow: visible;
+			}
+		</style>
+	</head>
+	<body>
+		环形文字目前没有更好的纯CSS方法。但是可以通过SVG来解决这个问题。<br>
+		SVG解决这个问题的方法：textpath包裹住这段文字。再装进text中。<br>
+		并且在textpath需要在其id属性中引用path元素。<br>
+		我们定义这个viewBox不是宽度高度，而是定义了这个SVG与外部容器等大小。<br>
+		M 0,50 移动到点（0,50）<br>
+		a 50,50 0 1,1 0,1
+		<div class="logo">
+			<div class="circle_text">
+				<svg viewBox="0 0 100 100">
+					<path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle"></path>
+					<text>
+						<textPath xlink:href="#circle">
+							UZI The Best AD Carry In The World
+						</textPath>
+					</text>
+				</svg>
+			</div>
+		</div>
+	</body>
+</html>
